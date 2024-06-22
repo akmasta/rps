@@ -56,8 +56,6 @@ function playGame() {
         const humSelection = getHumanChoice();
         if (humSelection === "Invalid!") {
             console.log("Invalid. Please choose (1) rock, (2) paper, or (3) scissors.");
-            i--; // Repeat if input is invalid
-            continue;
         }
         const compSelection = getComputerChoice();
         playRound(humSelection, compSelection);
