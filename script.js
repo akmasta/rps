@@ -8,11 +8,11 @@ compScore = 0;
 
 function getComputerChoice(x, compChoice) {
     if (x >= 0 && x <= 33) {
-        return console.log(compChoice = "rock");
+        return compChoice = "rock";
     } else if (x >= 34 && x <= 66) {
-        return console.log(compChoice = "paper");
+        return compChoice = "paper";
     } else if (x >= 67 && x <= 99) {
-        return console.log(compChoice = "scissors");
+        return compChoice = "scissors";
     }
 }
 
@@ -21,16 +21,39 @@ getComputerChoice(x, compChoice);
 
 // Prompt for user choice.
 
-function getHumanChoice (humChoice) {
+function getHumanChoice(humChoice) {
     if (humChoice === "1") {
-        return console.log(humChoice = "rock");
+        return humChoice = "rock";
     } else if (humChoice === "2") {
-        return console.log(humChoice = "paper");
+        return humChoice = "paper";
     } else if (humChoice === "3") {
-        return console.log(humChoice = "scissors");
+        return humChoice = "scissors";
     } else {
-        return console.log(humChoice = "Invalid!");
+        return humChoice = "Invalid!";
     }
 }
 
-getHumanChoice (humChoice);
+getHumanChoice(humChoice);
+
+// Gameplay
+
+function playRound(humChoice, compChoice) {
+    if (humChoice === "rock" && compChoice === "scissors"
+        || humChoice === "paper" && compChoice === "rock"
+        || humChoice === "scissors" && compChoice === "paper") {
+        return console.log(`${humChoice} vs. ${compChoice} - you win!`);
+    } else if (humChoice === "rock" && compChoice === "paper"
+        || humChoice === "paper" && compChoice === "scissors"
+        || humChoice === "scissors" && compChoice === "rock") { 
+        return console.log(`${humChoice} vs. ${compChoice} - computer wins!`);
+    } else if (humChoice === "rock" && compChoice === "rock" 
+        || humChoice === "paper" && compChoice === "paper"
+        || humChoice === "scissors" && compChoice === "scissors") {
+        return console.log(`${humChoice} vs. ${compChoice} - it's a tie!`);
+    }
+}
+
+const humSelection = getHumanChoice(humChoice);
+const compSelection = getComputerChoice(x, compChoice);
+
+playRound(humSelection, compSelection);
